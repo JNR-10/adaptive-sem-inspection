@@ -1,0 +1,35 @@
+datasets:
+  miic:
+    license: "CC BY-NC 4.0; non-commercial research only"
+    destination_key: miic
+    archives:
+      - filename: Anomaly_train.rar
+        file_id: 69912
+        expected_bytes: 666594169
+        md5: b7c7201863c4fe92e494caec3c35429f
+      - filename: Anomaly_test.rar
+        file_id: 69910
+        expected_bytes: 57307813
+        md5: 8564777749e0de87348c785221d06d69
+      - filename: Inpainting_train.rar
+        file_id: 69908
+        expected_bytes: 76171335
+        md5: 05692f52bf2f011fea72548cc8420785
+      - filename: Inpainting_test.rar
+        file_id: 69907
+        expected_bytes: 29813335
+        md5: 671576e5302bc1b64bc2f369b2223cf1
+      - filename: readme.txt
+        file_id: 69909
+        expected_bytes: 2247
+        md5: f5d78362bd937bcd914ccb38c9ca837c
+    url_template: "https://researchdata.ntu.edu.sg/api/access/datafile/{file_id}"
+    expected:
+      train_total: 25276
+      train_after_exact_test_subtraction: 23888
+      test_normal: 1272
+      test_anomaly: 116
+      test_masks: 116
+      inpainting_train_pairs: 1312
+      inpainting_test_pairs: 135
+      native_side: 512

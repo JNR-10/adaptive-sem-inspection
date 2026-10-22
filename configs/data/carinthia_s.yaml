@@ -1,0 +1,14 @@
+datasets:
+  carinthia_s:
+    license: "CC BY 4.0"
+    destination_key: carinthia_s
+    archives:
+      - filename: data.zip
+        url: "https://zenodo.org/records/16895427/files/data.zip?download=1"
+        expected_bytes: 139225942
+        md5: 3a41242574635cf1302fab15accb7730
+    expected:
+      image_count: 4591
+      native_side: 480
+      class_counts: {"1": 55, "2": 8, "3": 4008, "4": 289, "5": 4, "6": 227}
+      class6: "no_visible_defect_or_misalignment"
