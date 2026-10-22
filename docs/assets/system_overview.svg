@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="440" viewBox="0 0 1440 440" role="img" aria-labelledby="title desc">
+  <title id="title">Adaptive SEM inspection system overview</title>
+  <desc id="desc">Survey SEM regions move through a frozen visual encoder and normal-memory detector. A learned value-of-resolution router and a deterministic budget allocator decide which regions receive the next observation quality before calibrated final decisions are evaluated.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5f6b7a"/>
+    </marker>
+  </defs>
+  <rect width="1440" height="440" fill="#f7f9fc"/>
+  <text x="60" y="58" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#182433">Budget-aware multi-resolution SEM inspection</text>
+  <text x="60" y="91" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#526173">A computer-vision decision pipeline: detect evidence, estimate the value of more information, then allocate a fixed review budget.</text>
+
+  <g transform="translate(60 145)">
+    <rect width="285" height="208" rx="15" fill="#e8f0fe" stroke="#5b84c4" stroke-width="2"/>
+    <text x="24" y="40" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#173d74">1. Q0 survey</text>
+    <text x="24" y="70" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#314c6e">Coarse SEM region</text>
+    <rect x="24" y="98" width="237" height="82" rx="7" fill="#46515e"/>
+    <path d="M24 117 H261 M24 139 H261 M24 162 H261" stroke="#b6c0c9" stroke-width="10" opacity=".62"/>
+    <text x="24" y="199" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#526173">Q0/Q1/Q2/Q3 are simulated information levels</text>
+  </g>
+
+  <path d="M357 249 H416" stroke="#5f6b7a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(435 145)">
+    <rect width="285" height="208" rx="15" fill="#ecf8f2" stroke="#3c9871" stroke-width="2"/>
+    <text x="24" y="40" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#176344">2. Visual evidence</text>
+    <text x="24" y="70" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#315d4b">Frozen DINOv2 + normal memory</text>
+    <circle cx="58" cy="125" r="28" fill="#b6dfca"/>
+    <circle cx="121" cy="125" r="28" fill="#8dcaad"/>
+    <circle cx="184" cy="125" r="28" fill="#65b58d"/>
+    <path d="M57 125 H184" stroke="#176344" stroke-width="3"/>
+    <text x="24" y="180" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#315d4b">Patch anomaly evidence → calibrated probability</text>
+  </g>
+
+  <path d="M732 249 H791" stroke="#5f6b7a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(810 145)">
+    <rect width="285" height="208" rx="15" fill="#fff5e8" stroke="#c88931" stroke-width="2"/>
+    <text x="24" y="40" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#874d09">3. VoR router</text>
+    <text x="24" y="70" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#6e522c">Estimate next-step risk reduction</text>
+    <rect x="25" y="100" width="66" height="50" rx="6" fill="#f5d8a6"/>
+    <rect x="109" y="100" width="66" height="50" rx="6" fill="#f0c77c"/>
+    <rect x="193" y="100" width="66" height="50" rx="6" fill="#e4ad53"/>
+    <text x="41" y="131" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6e522c">state</text>
+    <text x="124" y="131" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6e522c">gain</text>
+    <text x="207" y="131" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#6e522c">rank</text>
+    <text x="24" y="184" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#6e522c">Labels, masks, future features, and budget are excluded</text>
+  </g>
+
+  <path d="M1107 249 H1166" stroke="#5f6b7a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g transform="translate(1185 145)">
+    <rect width="195" height="208" rx="15" fill="#f6eef9" stroke="#9163a4" stroke-width="2"/>
+    <text x="22" y="40" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#603b72">4. Allocate</text>
+    <text x="22" y="66" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#604a69">Fixed batch budget</text>
+    <rect x="23" y="92" width="149" height="13" rx="6" fill="#d5bddf"/>
+    <rect x="23" y="92" width="94" height="13" rx="6" fill="#8b5aa0"/>
+    <text x="22" y="140" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#604a69">Advance selected regions</text>
+    <text x="22" y="165" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#604a69">Calibrate final threshold</text>
+    <text x="22" y="190" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#604a69">Evaluate after policy ends</text>
+  </g>
+
+  <text x="60" y="405" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#526173">Research scope: normalized information cost only. It does not estimate scan time, dose, throughput, yield, or tool savings.</text>
+</svg>
