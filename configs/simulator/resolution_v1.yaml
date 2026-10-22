@@ -1,0 +1,13 @@
+image:
+  canonical_size: 448
+  grayscale: true
+  repeat_channels: 3
+  source_resize: lanczos
+  downsample: area
+  upsample: bicubic
+  upsample_align_corners: false
+qualities:
+  - {id: Q0, index: 0, effective_side: 56, cumulative_cost: 0.015625}
+  - {id: Q1, index: 1, effective_side: 112, cumulative_cost: 0.0625}
+  - {id: Q2, index: 2, effective_side: 224, cumulative_cost: 0.25}
+  - {id: Q3, index: 3, effective_side: 448, cumulative_cost: 1.0}
