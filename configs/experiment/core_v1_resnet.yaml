@@ -1,0 +1,22 @@
+# This fallback is valid only if the DINOv2 feasibility gate fails before a
+# final-test lock is written. Use a separate runtime root so its caches cannot
+# be mistaken for core_v1 DINO artifacts.
+include: core_v1.yaml
+
+protocol_version: core_v1_resnet
+
+paths:
+  runtime_root: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}"
+  raw_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/data/raw"
+  extracted_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/data/extracted"
+  manifest_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/data/manifests"
+  cache_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/cache"
+  artifacts_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/artifacts"
+  runs_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-resnet}/runs"
+
+detector:
+  encoder_type: resnet18
+  backbone: resnet18_imagenet1k_v1
+  source_repository: torchvision
+  source_commit: torchvision_resnet18_imagenet1k_v1
+  query_grid: [14, 14]

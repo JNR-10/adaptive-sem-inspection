@@ -1,0 +1,16 @@
+# Exploratory detector-memory saturation variant.
+include: ../core_v1.yaml
+
+protocol_version: core_v1_ablation_memory_50k
+
+paths:
+  runtime_root: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}"
+  raw_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/data/raw"
+  extracted_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/data/extracted"
+  manifest_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/data/manifests"
+  cache_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/cache"
+  artifacts_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/artifacts"
+  runs_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-memory-50k}/runs"
+
+detector:
+  descriptors_per_quality: 50000

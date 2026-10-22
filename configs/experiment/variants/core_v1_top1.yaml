@@ -1,0 +1,17 @@
+# Exploratory detector aggregation variant. Run its complete pipeline in its
+# own runtime root only after the immutable core_v1 result exists.
+include: ../core_v1.yaml
+
+protocol_version: core_v1_ablation_top1
+
+paths:
+  runtime_root: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}"
+  raw_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/data/raw"
+  extracted_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/data/extracted"
+  manifest_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/data/manifests"
+  cache_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/cache"
+  artifacts_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/artifacts"
+  runs_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-top1}/runs"
+
+detector:
+  score_top_k: 1

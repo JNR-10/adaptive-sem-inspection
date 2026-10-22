@@ -1,0 +1,46 @@
+include:
+  - ../data/miic.yaml
+  - ../data/carinthia_s.yaml
+  - ../simulator/resolution_v1.yaml
+  - ../simulator/noise_stress_v1.yaml
+  - ../detector/dinov2_nn_v1.yaml
+  - ../router/vor_mlp_v1.yaml
+  - ../policy/cost_models_v1.yaml
+
+protocol_version: core_v1
+seed: 20260917
+
+paths:
+  runtime_root: "${SEMSPECT_RUNTIME_ROOT:-runtime}"
+  raw_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/data/raw"
+  extracted_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/data/extracted"
+  manifest_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/data/manifests"
+  cache_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/cache"
+  artifacts_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/artifacts"
+  runs_dir: "${SEMSPECT_RUNTIME_ROOT:-runtime}/runs"
+
+splits:
+  normal_memory_train: 8000
+  policy_calibration_normals: 2000
+  # 182 source-image-sharing pairs are quarantined because they overlap the
+  # sealed final test. The remaining duplicate-group-safe pool has 1,265 pairs.
+  router_train_pairs: 868
+  score_calibration_pairs: 262
+  router_validation_pairs: 68
+  policy_calibration_anomaly_pairs: 67
+  policy_calibration_normal_count: 735
+
+evaluation:
+  fpr_alpha: 0.05
+  primary_budget: 0.20
+  budgets: [0.015625, 0.05, 0.10, 0.20, 0.40, 0.60, 0.80, 1.0]
+  random_policy_seeds: 30
+  bootstrap_replicates: 10000
+  bootstrap_seed: 20260917
+  risk_weights: [1, 5, 10, 20]
+
+runtime:
+  feature_shard_size: 256
+  device: cuda
+  feature_batch_size: 16
+  deterministic: true

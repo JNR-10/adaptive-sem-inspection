@@ -1,0 +1,18 @@
+# Exploratory unpooled-DINO patch descriptor variant. It changes the detector
+# observation grid, so it must run as a complete separate protocol.
+include: ../core_v1.yaml
+
+protocol_version: core_v1_ablation_unpooled
+
+paths:
+  runtime_root: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}"
+  raw_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/data/raw"
+  extracted_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/data/extracted"
+  manifest_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/data/manifests"
+  cache_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/cache"
+  artifacts_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/artifacts"
+  runs_dir: "${SEMSPECT_RUNTIME_ROOT:-/content/sem-inspection-ablation-unpooled}/runs"
+
+detector:
+  patch_pool: 1
+  query_grid: [32, 32]
