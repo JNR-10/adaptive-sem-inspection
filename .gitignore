@@ -1,0 +1,34 @@
+# Public source only: never commit restricted MIIC data or generated experiment state.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+.venv/
+.DS_Store
+
+# Runtime data and sealed outputs
+runtime/
+data/raw/
+data/extracted/
+data/manifests/
+cache/
+artifacts/
+runs/
+*.partial
+*.tmp
+*.rar
+*.zip
+*.pt
+*.safetensors
+*.parquet
+
+# A small, versioned snapshot of the completed public benchmark is intentional.
+!results/
+!results/metrics.parquet
+
+# Colab and Drive credentials
+drive/
+*.json.key
+credentials.json
+token.json

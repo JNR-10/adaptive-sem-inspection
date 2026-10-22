@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the repository and the original MIIC and Carinthia-S datasets."
+title: "Budget-Aware Adaptive Multi-Resolution Inspection for Semiconductor SEM Images"
+type: software
+version: 0.1.0
+date-released: 2026-09-21
+license: MIT
