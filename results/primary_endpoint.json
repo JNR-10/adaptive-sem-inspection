@@ -1,0 +1,1 @@
+{"bootstrap_replicates":10000,"budget":0.2,"ci95":[-0.051724137931034475,0.008836206896548657],"comparison":"vor_mlp_minus_uncertainty_entropy_recall","cost_model":"pixel_information","estimate":-0.017241379310344862}
